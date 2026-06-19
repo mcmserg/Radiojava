@@ -3,8 +3,8 @@ package ru.netology.javaqa.javagamvn.services;
 
 public class Radio {
 
-    public int currentStation;
-    public int currentVolume;
+    private int currentStation;
+    private int currentVolume;
 
     public Radio() {
         this.currentStation = 0;
