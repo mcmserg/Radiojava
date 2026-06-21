@@ -7,6 +7,40 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
+
+
+
+    @Test
+    void testDefaultConstructor() { //тест начальных значений
+        Radio radio = new Radio();
+        assertEquals(10, radio.getStationCount());
+        assertEquals(0, radio.getMinStation());
+        assertEquals(9, radio.getMaxStation());
+        assertEquals(0, radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    void testConstructorWithValidStationCount() { //Тест возможно допустимых станций
+        Radio radio = new Radio(15);
+        assertEquals(15, radio.getStationCount());
+        assertEquals(0, radio.getMinStation());
+        assertEquals(14, radio.getMaxStation());
+        assertEquals(0, radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    void testConstructorWithZeroStationCount() { //тестов с нулевым количеством станций
+        Radio radio = new Radio(0);
+        assertEquals(10, radio.getStationCount());
+        assertEquals(0, radio.getMinStation());
+        assertEquals(9, radio.getMaxStation());
+        assertEquals(0, radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+
     @Test
     void SetCurrentStation() { //тест Установить текущую станцию
         Radio radio = new Radio();
