@@ -3,11 +3,27 @@ package ru.netology.javaqa.javagamvn.services;
 
 public class Radio {
 
-    private int currentStation;
-    private int currentVolume;
+    private int minStation = 0;
+    private int maxStation;
+    private int currentStation = minStation;
+    private int currentVolume = 0;
+    private int stationCount;
 
     public Radio() {
-        this.currentStation = 0;
+        this.stationCount = 10;
+        this.maxStation = stationCount - 1;
+        this.currentStation = minStation;
+        this.currentVolume = 0;
+    }
+
+    public Radio(int stationCount) {
+        if (stationCount <= 0) {
+            this.stationCount = 10;
+        } else {
+            this.stationCount = stationCount;
+        }
+        this.maxStation = this.stationCount - 1;
+        this.currentStation = minStation;
         this.currentVolume = 0;
     }
 
@@ -15,9 +31,22 @@ public class Radio {
         return currentStation;
     }
 
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public int getStationCount() {
+        return stationCount;
+    }
+
     public int getCurrentVolume() {
         return currentVolume;
     }
+
 
     public void setCurrentStation(int currentStation) {
         if (currentStation >= 0 && currentStation <= 9) {
